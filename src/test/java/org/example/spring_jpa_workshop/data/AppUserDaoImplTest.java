@@ -81,7 +81,7 @@ public class AppUserDaoImplTest {
 
     @Test
     public void regDate(){
-        LocalDate expected = LocalDate.parse("2023-01-20");
+        LocalDate expected = LocalDate.parse("2023-01-23");
         LocalDate actual = createdUser1.getRegDate();
         assertEquals(expected,actual);
     }
