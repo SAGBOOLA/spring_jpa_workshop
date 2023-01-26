@@ -16,7 +16,7 @@ public class Author {
     private String firstName;
     @Column(nullable = false, length = 100)
     private String lastName;
-    @ManyToMany(cascade = {CascadeType.DETACH, CascadeType.REFRESH})
+    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.DETACH, CascadeType.REFRESH})
     private Set<Book> writtenBooks;
 
     public Author() {

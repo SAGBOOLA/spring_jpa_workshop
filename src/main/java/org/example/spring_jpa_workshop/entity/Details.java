@@ -19,14 +19,21 @@ public class Details {
     private LocalDate birthDate;
 
     //constructor
+    public Details() {
+
+    }
+
     public Details(String email, String name, LocalDate birthDate) {
         this.email = email;
         this.name = name;
         this.birthDate = birthDate;
     }
 
-    public Details() {
-
+    public Details(int detailsId, String email, String name, LocalDate birthDate) {
+        this.detailsId = detailsId;
+        this.email = email;
+        this.name = name;
+        this.birthDate = birthDate;
     }
 
     //getter & setter

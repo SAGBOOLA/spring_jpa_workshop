@@ -31,6 +31,7 @@ public class DetailsDaoImplTest {
 
     Details createdDetail2;
 
+
     @BeforeEach
     public void setup(){
         Details details1 = new Details("george@gmail.com", " George Miles", LocalDate.parse("1980-01-22"));
@@ -59,5 +60,12 @@ public class DetailsDaoImplTest {
     public void delete(){
         testObject.delete(createdDetail2.getDetailsId());
         assertNull(em.find(Details.class, createdDetail2.getDetailsId()));
+    }
+
+    @Test
+    public void update(){
+        Details expected = new Details(createdDetail2.getDetailsId(), "will01@gmail.com", " Smart Will", LocalDate.parse("1981-09-12"));
+        Details actual = testObject.update(new Details(createdDetail2.getDetailsId(), "will01@gmail.com", " Smart Will", LocalDate.parse("1981-09-12")));
+        assertEquals(expected,actual);
     }
 }

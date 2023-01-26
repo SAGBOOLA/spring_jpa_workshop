@@ -135,7 +135,6 @@ public class AppUser {
         return "AppUser{" +
                 "appUserId=" + appUserId +
                 ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
                 ", regDate=" + regDate +
                 '}';
     }

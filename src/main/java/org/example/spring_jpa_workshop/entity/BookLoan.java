@@ -17,10 +17,10 @@ public class BookLoan {
     private LocalDate dueDate;
     @Column(nullable = false)
     private boolean returned;
-    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.REFRESH})
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.DETACH, CascadeType.REFRESH})
     @JoinColumn(name = "app_user_id")
     private AppUser borrower;
-    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.REFRESH})
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.DETACH, CascadeType.REFRESH})
     @JoinColumn(name = "book_id")
     private Book book;
 
@@ -29,6 +29,13 @@ public class BookLoan {
     }
 
     public BookLoan(LocalDate loanDate, LocalDate dueDate, boolean returned) {
+        this.loanDate = loanDate;
+        this.dueDate = dueDate;
+        this.returned = returned;
+    }
+
+    public BookLoan(int loanId, LocalDate loanDate, LocalDate dueDate, boolean returned) {
+        this.loanId = loanId;
         this.loanDate = loanDate;
         this.dueDate = dueDate;
         this.returned = returned;
@@ -48,6 +55,13 @@ public class BookLoan {
         this.dueDate = dueDate;
         this.returned = returned;
         this.borrower = borrower;
+        this.book = book;
+    }
+
+    public BookLoan(LocalDate loanDate, LocalDate dueDate, boolean returned, Book book) {
+        this.loanDate = loanDate;
+        this.dueDate = dueDate;
+        this.returned = returned;
         this.book = book;
     }
 
